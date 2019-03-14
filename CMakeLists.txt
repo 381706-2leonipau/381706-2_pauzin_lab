@@ -10,12 +10,20 @@ set(vector vector) #Переменная с именем библиотеки
 set(vectorlib vectorlib) #Переменная с именем библиотеки
 set(vectortest vectortest)
 
+set(queuelib queuelib)
+set(queuetest queuetest)
+set(queue queue)
+
 set(matrixtest matrixtest)
 set(matrixlib matrixlib)
 
 set(stacklib stacklib)
 set(stacktest stacktest)
 set(stack stack)
+
+set(multistacklib multistacklib)
+set(multistacktest multistacktest)
+set(multistack multistack)
 
 set(exeptionlib exeptionlib)
 
@@ -25,7 +33,7 @@ if(NOT CMAKE_BUILD_TYPE) # проверка имеющихся у компиля
   set(CMAKE_BUILD_TYPE Release) #Если нет то устанавливаем Release
 endif()
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/vectorlib ${CMAKE_CURRENT_SOURCE_DIR}/matrixlib ${CMAKE_CURRENT_SOURCE_DIR}/stacklib  ${CMAKE_CURRENT_SOURCE_DIR}/exeptionlib ${CMAKE_CURRENT_SOURCE_DIR}/gtest)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/vectorlib ${CMAKE_CURRENT_SOURCE_DIR}/matrixlib ${CMAKE_CURRENT_SOURCE_DIR}/stacklib ${CMAKE_CURRENT_SOURCE_DIR}/queuelib ${CMAKE_CURRENT_SOURCE_DIR}/multistacklib ${CMAKE_CURRENT_SOURCE_DIR}/exeptionlib ${CMAKE_CURRENT_SOURCE_DIR}/gtest)
 
 add_subdirectory(vector)
 add_subdirectory(vectorlib)
@@ -34,6 +42,13 @@ add_subdirectory(vectortest)
 add_subdirectory(matrixtest)
 add_subdirectory(matrixlib)
 
+add_subdirectory(multistacklib)
+add_subdirectory(multistacktest)
+add_subdirectory(multistack)
+
+add_subdirectory(queuelib)
+add_subdirectory(queuetest)
+add_subdirectory(queue)
 
 add_subdirectory(gtest) 
 

@@ -5,8 +5,6 @@
 
 using namespace std;
 
-
-
 template <class ValType>
 class TVector
 {
