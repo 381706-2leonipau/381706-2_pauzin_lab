@@ -8,7 +8,11 @@ before_script:
 script:
   - cmake ../381706-2_pauzin_lab
   - make -j
-  - ./vector/vector
+  - ./vectortest/vectortest
+  - ./matrixtest/matrixtest
+  - ./stacktest/stacktest
+  - ./multistacktest/multistacktest
+  - ./queuetest/queuetest
 notifications:
   email: false
 
