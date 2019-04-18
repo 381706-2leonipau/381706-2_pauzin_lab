@@ -29,8 +29,8 @@ public:
   TMultiStack & operator= (const TMultiStack &ms); // присванивание
   void Put(int ns, const ValType &Val); // положить в стек 
   ValType Get(int ns); // взять из стека с удалением
-	void Print();
-	int GetRelocationCount() { return relocationCount; }
+  void Print();
+  int GetRelocationCount() { return relocationCount; }
 };
 
 template <class ValType>
@@ -108,10 +108,11 @@ TMultiStack<ValType>::TMultiStack(TMultiStack & ms)
 }
 
 template<class ValType>
-TMultiStack<ValType>::~TMultiStack()
+TMultiStack<ValType>::~TMultiStack<ValType>()
 {
-  delete[] pStack;
-  delete[] stackMem;
+  delete[]pStack;
+  delete[]pStackMem;
+  delete[]stackMem;
   delete[]stackTops;
   delete[]stackInd;
 }
@@ -146,15 +147,13 @@ void TMultiStack<ValType>::StackRelocation(int nst)
 {
   int n;
   stackTops[nst] += 1;
-  int temp = GetFreeMemSize();
+  int temp = GetFreeMemSize() - 1;
   if (temp > -1)
   {
     pStackMem[0] = &stackMem[0];
     for (int i = 1; i < stackCount; i++)
       pStackMem[i] = pStackMem[i - 1] + stackTops[i - 1] + temp / stackCount;
-    pStackMem[nst] += temp % stackCount;
-	}
-  stackTops[nst] -= 1;
+  }
   for (int i = 0; i < stackCount; i++)
     if (pStackMem[i] < stackInd[i])
     {
@@ -165,19 +164,27 @@ void TMultiStack<ValType>::StackRelocation(int nst)
     }
     else if (pStackMem[i] > stackInd[i])
     {
-      for (n = i; pStackMem[n + 1] > stackInd[n + 1]; n++);
+		for (n = i; pStackMem[n + 1] > stackInd[n + 1]; n++) 
+		{
+		  if (n == stackCount - 1)
+			  break;
+		}		
       for (int k = n; k >= i; k--)
       {
         for (int j = (stackTops[k] - 1); j >= 0; j--)
           pStackMem[k][j] = stackInd[k][j];
-        pStack[k]->SetMem(pStackMem[k], pStackMem[k + 1] - pStackMem[k]);
+		if (k != stackCount - 1)
+          pStack[k]->SetMem(pStackMem[k], pStackMem[k + 1] - pStackMem[k]);
         stackInd[k] = pStackMem[k];
       }
     }
     else
     {
-      pStack[i]->SetMem(pStackMem[i], pStackMem[i + 1] - pStackMem[i]);
+	  if (i != stackCount - 1)
+        pStack[i]->SetMem(pStackMem[i], pStackMem[i + 1] - pStackMem[i]);
     }
+  pStack[stackCount - 1]->SetMem(pStackMem[stackCount - 1], memSize - (pStackMem[stackCount - 1] - pStackMem[0]));
+  stackTops[nst] -= 1;
   relocationCount++;
 }
 

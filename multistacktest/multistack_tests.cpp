@@ -67,11 +67,11 @@ TEST(TMultiStack, can_get_value)
 TEST(TMultiStack, can_put_multy_value)
 {
 	TMultiStack<int> MyMultiStack(10, 2);
-	MyMultiStack.Put(0, 3);
-	MyMultiStack.Put(0, 1);
-	MyMultiStack.Put(0, 4);
-	MyMultiStack.Put(0, 1);
-	MyMultiStack.Put(0, 5);
+	MyMultiStack.Put(0,3);
+	MyMultiStack.Put(0,1);
+	MyMultiStack.Put(0,4);
+	MyMultiStack.Put(0,1);
+	MyMultiStack.Put(0,5);
 	MyMultiStack.Put(1, 2);
 	MyMultiStack.Put(1, 7);
 	MyMultiStack.Put(1, 1);

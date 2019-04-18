@@ -33,7 +33,8 @@ int main(int argc, char* argv[])
     }
     mst.Print();
     cout << "Cycles - " << val << ", Repacking - " << mst.GetRelocationCount() << endl;
-    cout << "Currently in multistek: " << CurrCount << endl;
+    cout << "Currently in multistek: " << CurrCount << endl << "\n";
+
 
   }
   return 0;

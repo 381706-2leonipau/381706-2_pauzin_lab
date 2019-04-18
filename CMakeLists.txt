@@ -25,6 +25,11 @@ set(multistacklib multistacklib)
 set(multistacktest multistacktest)
 set(multistack multistack)
 
+set(datlink datlink)
+set(datlistlib datlistlib)
+set(datlist datlist)
+set(datlisttest datlisttest)
+
 set(exeptionlib exeptionlib)
 
 
@@ -33,7 +38,7 @@ if(NOT CMAKE_BUILD_TYPE) # проверка имеющихся у компиля
   set(CMAKE_BUILD_TYPE Release) #Если нет то устанавливаем Release
 endif()
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/vectorlib ${CMAKE_CURRENT_SOURCE_DIR}/matrixlib ${CMAKE_CURRENT_SOURCE_DIR}/stacklib ${CMAKE_CURRENT_SOURCE_DIR}/queuelib ${CMAKE_CURRENT_SOURCE_DIR}/multistacklib ${CMAKE_CURRENT_SOURCE_DIR}/exeptionlib ${CMAKE_CURRENT_SOURCE_DIR}/gtest)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/vectorlib ${CMAKE_CURRENT_SOURCE_DIR}/matrixlib ${CMAKE_CURRENT_SOURCE_DIR}/stacklib ${CMAKE_CURRENT_SOURCE_DIR}/queuelib ${CMAKE_CURRENT_SOURCE_DIR}/multistacklib ${CMAKE_CURRENT_SOURCE_DIR}/datlistlib ${CMAKE_CURRENT_SOURCE_DIR}/datlink  ${CMAKE_CURRENT_SOURCE_DIR}/exeptionlib ${CMAKE_CURRENT_SOURCE_DIR}/gtest)
 
 add_subdirectory(vector)
 add_subdirectory(vectorlib)
@@ -55,6 +60,11 @@ add_subdirectory(gtest)
 add_subdirectory(stacklib)
 add_subdirectory(stacktest)
 add_subdirectory(stack)
+
+add_subdirectory(datlistlib)
+add_subdirectory(datlink)
+add_subdirectory(datlisttest)
+add_subdirectory(datlist)
 
 add_subdirectory(exeptionlib)
 

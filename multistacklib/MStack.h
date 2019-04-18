@@ -26,7 +26,6 @@ MStack<ValType>::~MStack()
   this->mem = NULL;
 }
 
-
 template<class ValType>
 void MStack<ValType>::SetMem(ValType * ind, int Size)
 {

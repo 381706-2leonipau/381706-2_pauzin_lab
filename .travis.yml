@@ -13,6 +13,7 @@ script:
   - ./stacktest/stacktest
   - ./multistacktest/multistacktest
   - ./queuetest/queuetest
+  - ./datlisttest/datlisttest
 notifications:
   email: false
 
