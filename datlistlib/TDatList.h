@@ -17,7 +17,7 @@ public:
   TDatList();
   TDatList(const TDatList& dl);
   ~TDatList() { DelList(); }
-  ValType& GetDatValue(int num) const; // get the value
+  ValType& GetDatValue(int num) const; // get the value with given number
   int IsEmpty() const { return pFirst == NULL; } // check for emptiness
   int GetListLength() const { return listLen; } // number of links
   // link insertion
@@ -26,7 +26,7 @@ public:
   void InsTo(int num, const ValType& Val); // insert into position
   // removing links
   void DelFirst(); // delete first link 
-  void Del(int num); // delete random link
+  void Del(int num); // delete link with given number
   void DelList(); //delete the entire list
 };
 

@@ -19,6 +19,7 @@ int main()
     cout << "Put elem " << pVal << endl;
   }
   cout << "\n";
+  // list output
   for (int i = 0; i < st.GetListLength(); i++) {
     pVal = st.GetDatValue(i);
     cout << "Get elem " << pVal << endl;
