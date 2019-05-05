@@ -30,6 +30,23 @@ set(datlistlib datlistlib)
 set(datlist datlist)
 set(datlisttest datlisttest)
 
+set(arrlistlib arrlistlib)
+set(arrlisttest arrlisttest)
+set(arrlist arrlist)
+
+set(liststacktest liststacktest)
+set(liststacklib liststacklib)
+set(liststack liststack)
+
+set(polynomlib polynomlib)
+set(polynomtest polynomtest)
+set(polynom polynom)
+
+set(infixtopolish infixtopolish)
+set(infixtopolishlib infixtopolishlib)
+set(infixtopolishtest infixtopolishtest)
+
+
 set(exeptionlib exeptionlib)
 
 
@@ -38,7 +55,7 @@ if(NOT CMAKE_BUILD_TYPE) # проверка имеющихся у компиля
   set(CMAKE_BUILD_TYPE Release) #Если нет то устанавливаем Release
 endif()
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/vectorlib ${CMAKE_CURRENT_SOURCE_DIR}/matrixlib ${CMAKE_CURRENT_SOURCE_DIR}/stacklib ${CMAKE_CURRENT_SOURCE_DIR}/queuelib ${CMAKE_CURRENT_SOURCE_DIR}/multistacklib ${CMAKE_CURRENT_SOURCE_DIR}/datlistlib ${CMAKE_CURRENT_SOURCE_DIR}/datlink  ${CMAKE_CURRENT_SOURCE_DIR}/exeptionlib ${CMAKE_CURRENT_SOURCE_DIR}/gtest)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/vectorlib ${CMAKE_CURRENT_SOURCE_DIR}/matrixlib ${CMAKE_CURRENT_SOURCE_DIR}/stacklib ${CMAKE_CURRENT_SOURCE_DIR}/queuelib ${CMAKE_CURRENT_SOURCE_DIR}/multistacklib ${CMAKE_CURRENT_SOURCE_DIR}/datlistlib ${CMAKE_CURRENT_SOURCE_DIR}/datlink ${CMAKE_CURRENT_SOURCE_DIR}/arrlistlib ${CMAKE_CURRENT_SOURCE_DIR}/liststacklib ${CMAKE_CURRENT_SOURCE_DIR}/polynomlib ${CMAKE_CURRENT_SOURCE_DIR}/infixtopolishlib ${CMAKE_CURRENT_SOURCE_DIR}/exeptionlib ${CMAKE_CURRENT_SOURCE_DIR}/gtest)
 
 add_subdirectory(vector)
 add_subdirectory(vectorlib)
@@ -55,7 +72,7 @@ add_subdirectory(queuelib)
 add_subdirectory(queuetest)
 add_subdirectory(queue)
 
-add_subdirectory(gtest) 
+ 
 
 add_subdirectory(stacklib)
 add_subdirectory(stacktest)
@@ -66,8 +83,24 @@ add_subdirectory(datlink)
 add_subdirectory(datlisttest)
 add_subdirectory(datlist)
 
-add_subdirectory(exeptionlib)
+add_subdirectory(arrlistlib)
+add_subdirectory(arrlisttest)
+add_subdirectory(arrlist)
 
+add_subdirectory(liststacktest)
+add_subdirectory(liststacklib)
+add_subdirectory(liststack)
+
+add_subdirectory(polynomlib)
+add_subdirectory(polynomtest)
+add_subdirectory(polynom)
+
+add_subdirectory(infixtopolishlib)
+add_subdirectory(infixtopolishtest)
+add_subdirectory(infixtopolish)
+
+add_subdirectory(exeptionlib)
+add_subdirectory(gtest)
 #file(GLOB hdrs "*.h*") #Добавляем в переменную hdrs все файлы с расширением .h
 #file(GLOB srcs "*.cpp") #Добавляем в переменную srcs все файлы с расширением .h
 
