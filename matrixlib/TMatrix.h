@@ -35,7 +35,12 @@ public:
   friend ostream & operator<<(ostream &out, const TMatrix &mt)
   {
     for (int i = 0; i < mt.size; i++)
-      out << mt.pVector[i] << endl;
+	{
+	    int tmp = mt[i].GetStartIndex();
+		for (int j = 0; j < tmp; j++)
+		  cout << 0 << " ";
+        out << mt[i] << endl;
+	}
     return out;
   }
 };

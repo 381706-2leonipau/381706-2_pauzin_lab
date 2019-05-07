@@ -20,7 +20,7 @@ public:
   int GetSize() { return size; } // размер вектора
   int GetStartIndex() { return startIndex; } // индекс первого элемента
   ValType & GetValue(int pos); // доступ с контролем индекса
-  ValType & operator[] (int pos); // доступ
+  ValType & operator[] (int pos) const; // доступ
   int operator==(const TVector &v); // сравнение
   TVector & operator= (const TVector &v); // присванивание
                                           // скалярные операции
@@ -102,7 +102,7 @@ ValType & TVector<ValType>::GetValue(int pos)
 }
 
 template<class ValType>
-ValType & TVector<ValType>::operator[](int pos)
+ValType & TVector<ValType>::operator[](int pos) const
 {
   return pVector[pos - startIndex];
 }
