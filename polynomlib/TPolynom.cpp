@@ -149,7 +149,7 @@ ostream & operator<<(ostream & os, TPolynom & q)
   TDatLink<TMonom>* tmp = q.pFirst;
   for (int i = 0; i < q.listLen - 1; i++)
   {
-    os << q.GetDatValue(i) << '+';
+    os << q.GetDatValue(i) << " + ";
     tmp = tmp->GetNextLink();
   }
   os << q.GetDatValue(q.listLen - 1) << endl;

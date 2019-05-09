@@ -6,12 +6,12 @@
 
 using namespace std;
 
-int main(int argc, char* argv[])
+int main()
 {
   int CurrCount = 1;
-  TMultiStack<int> mst(100, 10);
+  TMultiStack<int> mst(50, 10);
   mst.Put(0, 10);
-  srand(1);
+  srand(time(NULL));
   int ms = 10, ns, code, temp, val = 0;
   cout << "N Stack System Testing" << endl;
   while (CurrCount != 50)
@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
     val++;
     if (val == 141)
       int a = 1;
-    code = rand() % 4; // операция
+    code = rand() % 6; // операция
     ns = rand() % ms; // номер стека
     if (code < 3)
     {

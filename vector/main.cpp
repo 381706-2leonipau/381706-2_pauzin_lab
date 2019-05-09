@@ -13,5 +13,6 @@ int main(int argc, char* argv[])
   cout << "\nA * B:" << endl << (A * B) << endl;
   cout << "A / B:" << endl << (A / B) << endl;
   cout << "A + B" << endl << (A + B) << endl;
+  cout << "A - B" << endl << (A - B) << endl;
   return 0;
 }

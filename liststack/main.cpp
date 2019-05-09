@@ -6,19 +6,23 @@
 int main()
 {
   srand(time(NULL));
-  TListStack<int> mst;
-  int code, temp, val = 0;
-  cout << "liststack test" << endl;
-  while (val < 100)
+  int temp;
+  cout << "Stack on List test" << endl << "\nEnter stack size: ";
+  int n;
+  cin >> n;
+  TListStack<int> stack;
+  for (int i = 1; i <= n; i++)
   {
-    val++;
-    code = rand() % 4;
-    if (code<2)
-      mst.Put(val);
-    else if (!mst.IsEmpty())
-      temp = mst.Get();
+    temp = rand() % 100 + 1;
+    cout << "\nPut elem: " << temp;
+    stack.Put(temp);
   }
-  cout << "Stack output" << endl;
-  mst.Print();
+  cout << "\n\n\nStack :\n";
+  stack.Print();
+  cout << endl << endl;
+  while (!stack.IsEmpty())
+    cout << "\nGet elem: " << stack.Get();
+  cout << "\n\nStack is Empty" << endl;
+
   return 0;
 }

@@ -1,24 +1,24 @@
 #include <TStack.h>
 #include <iostream>
 #include <cstdlib>
-
 using namespace std;
 
 
-int main(int argc, char* argv[])
+int main()
 {
-  setlocale(LC_ALL, "");
   TStack<int> st(100);
   int temp;
   cout << "Stack" << endl;
-  for (int i = 0; i<12; i++) {
+  for (int i = 0; i<12; i++)
+  {
     st.Put(i);
-    cout << "Положили значение " << i << endl;
+    cout << "Put elem " << i << endl;
   }
-  int k;
-  while (!st.IsEmpty()) {
+  cout << "\n";
+  while (!st.IsEmpty())
+  {
     temp = st.Get();
-    cout << "Взяли значение " << temp << endl;
+    cout << "Get elem " << temp << endl;
   }
   return 0;
 }
