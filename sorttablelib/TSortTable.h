@@ -14,7 +14,7 @@ class TSortTable
 {
 protected:
   int count;
-  int tabSize;
+  int size;
   SortType type;
   TTabRecord<ValType>** pRecs;
   void MergeSort(TTabRecord<ValType>** nRecs, int dC);
@@ -24,7 +24,7 @@ protected:
   void QuickSort(TTabRecord<ValType>** nRecs, int dC);
   void QuickSplit(TTabRecord<ValType>** pData, int size, int &pivot);
 public:
-  TSortTable(int size = 2);
+  TSortTable(int _size = 2);
   TSortTable(TScanTable<ValType> &st);
   ~TSortTable();
   void SetSortType(SortType t);
@@ -180,15 +180,15 @@ void TSortTable<ValType>::QuickSplit(TTabRecord<ValType>** pData, int size, int 
 }
 
 template<class ValType>
-TSortTable<ValType>::TSortTable(int size)
+TSortTable<ValType>::TSortTable(int _size)
 {
   type = QUICK;
-  tabSize = size;
+  size = _size;
   count = 0;
-  if (size < 1)
+  if (_size < 1)
     throw TExeption(DataErr);
-  pRecs = new TTabRecord<ValType>*[size];
-  for (int i = 0; i < size; i++)
+  pRecs = new TTabRecord<ValType>*[_size];
+  for (int i = 0; i < _size; i++)
   {
     pRecs[i] = NULL;
   }
@@ -244,12 +244,12 @@ TSortTable<ValType> & TSortTable<ValType>::operator=(const TScanTable<ValType> &
       delete pRecs[i];
     delete[]pRecs;
   }
-  tabSize = st.tabSize;
+  size = st.size;
   count = st.count;
-  pRecs = new TTabRecord<ValType>*[tabSize];
+  pRecs = new TTabRecord<ValType>*[size];
   for (int i = 0; i < count; i++)
     pRecs[i] = new TTabRecord<ValType>(*st.pRecs[i]);
-  for (int i = count; i < tabSize; i++)
+  for (int i = count; i < size; i++)
     pRecs[i] = NULL;
   SortData();
   return *this;
@@ -257,7 +257,7 @@ TSortTable<ValType> & TSortTable<ValType>::operator=(const TScanTable<ValType> &
 template<class ValType>
 int TSortTable<ValType>::Add(TTabRecord<ValType> * tr)
 {
-  if (count == tabSize)
+  if (count == size)
     throw TExeption(DataNoMem);
   if (count == 0)
   {

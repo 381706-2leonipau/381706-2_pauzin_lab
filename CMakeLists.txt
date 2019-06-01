@@ -64,7 +64,7 @@ add_subdirectory(plextest)
 add_subdirectory(plex)
 add_subdirectory(tablelib)
 add_subdirectory(tabletest)
-#add_subdirectory(table)
+
 add_subdirectory(sorttablelib)
 add_subdirectory(sorttabletest)
 add_subdirectory(sorttable)
