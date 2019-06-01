@@ -8,7 +8,12 @@ before_script:
 script:
   - cmake ../381706-2_pauzin_lab
   - make -j
-  - ./vector/vector
+  - ./tabletest/tabletest
+  - ./sorttabletest/sorttabletest
+  - ./treetabletest/treetabletest
+  - ./plextest/plextest
+  - ./texttreetest/texttreetest
+  - ./hashtabletest/hashtabletest
 notifications:
   email: false
 
